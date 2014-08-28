@@ -11,13 +11,18 @@ if(!jx){
     var jx = {}
 }
 jx.dom = {} ;
+jx.dom.exists = function(id){
+    return document.getElement(id) != null || document.getElementsByName(id) != null ;
+}
 jx.dom.get = {} ;
 /**
  * This function will return the value of a dom object regardless of the object
  * @param {type} id
  * @returns {undefined}
  */
-jx.dom.get.value = function(id){}
+jx.dom.get.value = function(id){
+    
+}
 jx.dom.get.children = function(id){}
 
 jx.dom.set = {} ;
