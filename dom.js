@@ -9,7 +9,8 @@
  * 
  * This implementation is designed by W3C specifications of HTML5 and will integrate well with other frameworks that do so.
  * In addition we tried to mildly specify preconditions for executions of functions
- * LICENSE: GPLv3
+ *
+ * LICENSE: GPLv3:
  *  This program comes with absolute NO WARRANTY or implied warranty and is free to use for any purpose: modified, integrated, distributed at will.
  */
 
@@ -39,6 +40,7 @@ jx.dom.remove = function(id){
     item.parentNode.removeChild(item) ;
     
 }
+
 /**
  * This function allow extraction from an select tag, if mutil selection is enabled an array is returned otherwise a scalar or string
  * The function also supports accessing a user defined attribute if specified otherwise it will use the default 'value', text can be specified
@@ -281,7 +283,16 @@ jx.dom.set.style = function(id,field,value){
  * @post: jx.dom.get.attribute(id,'className') == value
  * @returns {undefined}
  */
-jx.dom.set.class = function(id,value){
+jx.dom.set.css = function(id,value){
     _dom = jx.dom.get.instance(id) ;
     _dom.className = value;
+}
+/**
+ * This function will set the focus on a given DOM object
+ * @param {type} id
+ * @returns {undefined}
+ */
+jx.dom.set.focus = function(id){
+    _dom = jx.dom.get.instance(id) ;
+    _dom.focus();
 }
