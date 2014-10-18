@@ -257,6 +257,14 @@ jx.dom.set.value= function(id,value){
             key = obj[0].tagName ;
         }
     }
+
+    if(key.match(/div|span|textarea/i) || (key.match(/input/i)&& obj.type.match(/text|password/i) ) ){
+    	if(key.match(/input/i) == null){
+		obj.innerHTML = value ;
+	}else{
+		obj.value = value;
+	}
+    }
     
 }
 /**
@@ -296,3 +304,4 @@ jx.dom.set.focus = function(id){
     _dom = jx.dom.get.instance(id) ;
     _dom.focus();
 }
+
