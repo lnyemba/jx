@@ -24,7 +24,8 @@ jx.dom = {} ;
  * @returns {Boolean}
  */
 jx.dom.exists = function(id){
-    return document.getElement(id) != null || document.getElementsByName(id) != null ;
+
+    return document.getElementById(id) != null ;
 }
 /**
  * This function will remove a node given it's identifier
@@ -40,7 +41,18 @@ jx.dom.remove = function(id){
     item.parentNode.removeChild(item) ;
     
 }
-
+jx.dom.append = function(id,_child){
+	_parent = jx.dom.get.instance(id) ;
+	_parent.appendChild(_child) ;
+}
+jx.dom.show = function(_id){
+	_dom = jx.dom.get.instance(_id) ;
+	_dom.style.display = null;
+}
+jx.dom.hide = function(_id){
+	_dom = jx.dom.get.instance(_id) ;
+	_dom.style.display = 'none' ;
+}
 /**
  * This function allow extraction from an select tag, if mutil selection is enabled an array is returned otherwise a scalar or string
  * The function also supports accessing a user defined attribute if specified otherwise it will use the default 'value', text can be specified
