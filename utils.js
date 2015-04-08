@@ -1,4 +1,5 @@
 /**
+* Steve L. Nyemba <steve@the-phi.com>
 * jxf version 0.9
 * This file contains the compilation of utilities for miscellaneous/unsorted operations:
 *	casting
@@ -57,16 +58,38 @@ jx.utils.keys=function(rec){
  * This function will returnt he unique elements of a list
  * @param list  list of elements (duplicates are expected)
  */
-jx.utils.unique = function (list){
+jx.utils.unique = function (list,key){
     var obj = {}
     for(var i=0; i < list.length; i++){
-        obj[list[i]]= 1 ;
+    	if(list[i].constructor.name == Object){
+		id = list[i][key] ;
+		obj[id] = list[i] ;
+	}else{
+		obj[list[i]]= 1 ;
+		}
     }
-    return jx.utils.keys(obj);
+
+    if (list[0].constructor.name == Object){
+    	//
+	// In case we have a complex object we can use a utility function and a design pattern to address the issue
+	// @TODO: This function can be used in the math library considering either a key or a function to return some form of representation of the record ... perhaps a hash?
+	//
+    	return jx.utils.patterns.visitor(jx.utils.keys(obj),function(id){
+		return obj[id] ;
+	}) ;
+    }else{
+    	    return jx.utils.keys(obj);
+    }
 }
+
 /**
  * Implementation of a few standard design patterns. Their use is user/dependent
  * For more information on how/when to use a design pattern please use google/wikipedia ;-)
+ * We have implemented:
+ *	- Iterator design pattern
+ *	- Visitor design pattern
+ *	- Observer design pattern
+ * @TODO: Consider adding these patterns to events associated with DOMS (Other kind of utility function)
  */
 jx.utils.patterns = {}
 jx.utils.patterns.visitor = function(list,pointer){
@@ -178,4 +201,4 @@ jx.utils.search = function(id,keywords,attrib){
 	return lmatches ;
 }
 
-module.exports.utils = jx.utils ;
+//module.exports.utils = jx.utils ;
