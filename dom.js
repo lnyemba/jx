@@ -1,17 +1,18 @@
 /**
- * Javascript-x framework version 1.0, 
- * (c) 2012 - 2014, The Phi Technology LLC, https://the-phi.com
- * Steve L. Nyemba <steve@the-phi.com>
- * 
- * Handling of DOM objects will rely on DOM object identifiers (ID) with a few exceptions. 
- * The focus of a dom object is mostly centered around a single DOM object, 
- * We advise using utils.js in order to handle collections of DOM objects as utils.js implements various utilities and industry standard design patterns 
- * 
- * This implementation is designed by W3C specifications of HTML5 and will integrate well with other frameworks that do so.
- * In addition we tried to mildly specify preconditions for executions of functions
- *
- * LICENSE: GPLv3:
- *  This program comes with absolute NO WARRANTY or implied warranty and is free to use for any purpose: modified, integrated, distributed at will.
+* Simple Javascript eXtension - 1.0
+* (c) 2011 - 2015 Steve L. Nyemba, steve@the-phi.com
+* License GPL version 3.0
+* 
+* 
+* Handling of DOM objects will rely on DOM object identifiers (ID) with a few exceptions. 
+* The focus of a dom object is mostly centered around a single DOM object, 
+* We advise using utils.js in order to handle collections of DOM objects as utils.js implements various utilities and industry standard design patterns 
+* 
+* This implementation is designed by W3C specifications of HTML5 and will integrate well with other frameworks that do so.
+* In addition we tried to mildly specify preconditions for executions of functions
+*
+* LICENSE: GPLv3:
+*  This program comes with absolute NO WARRANTY or implied warranty and is free to use for any purpose: modified, integrated, distributed at will.
  */
 
 if(!jx){
