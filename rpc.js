@@ -14,51 +14,7 @@
 if(!jx){
   var jx = {}
 }
-//jx.ajax = {
-//        /**
-//         * In order to make the ajax requests domain specific we allow users to get an instance while making a global implementation available
-//         * This is useful for oauth applications that require domain specific headers to be set upon issuing a request
-//         */
-//        getInstance:function(){
-//            var obj = {} ;
-//            obj.headers = [] ;
-//            obj.setHeader = function(key,value){
-//                this.headers.push({'key':key,'value':value}) ;
-//            }
-//	    obj.async = true;
-//            obj.send = function(url,callback,method){
-//                    var xmlhttp =  new XMLHttpRequest()  ;
-//                    method = (method==null)?'GET':method ;
-//                    xmlhttp.onreadystatechange = function(){
-//                        if(xmlhttp.readyState == 4){
-//                          callback(xmlhttp) ;
-//                        }
-//                    }//-- end of Inline function
-//                    var key,value ;
-//		    //
-//		    // async=false has been deprecated (browsers complain a lot)
-//                    xmlhttp.open(method,url,this.async) ;
-//                    
-//                    if(obj.headers.length > 0){
-//                            for(var i=0; i < obj.headers.length; i++){
-//                                    key = obj.headers[i]['key'] ;
-//                                    value= obj.headers[i]['value'];
-//                                    //air.trace(key+'='+value)
-//
-//                                    if(key != null && value != null){
-//                                            xmlhttp.setRequestHeader(key,value) ;
-//                                    }
-//                            }
-//                    }
-//                  xmlhttp.send(null) ;
-//            }
-//            return obj;
-//
-//        },//-- end jx.ajax.getInstance	
-//    parser:null
-//  }//--end jx.ajax
-
- /**
+/**
  * These are a few parsers that can come in handy:
  * urlparser:	This parser is intended to break down a url parameter string in key,value pairs
  */
@@ -92,7 +48,6 @@ function urlparser(url){
 */
 jx.ajax = {}
 jx.ajax.get = {} ;
-jx.ajax.get.instance = jx.ajax.getInstance ;
 jx.ajax.debug = null;
 jx.ajax.get.instance = function(){
     var factory = function(){
@@ -160,3 +115,7 @@ jx.ajax.get.instance = function(){
     }//-- end of the factory method
     return new factory() ;
 }
+
+//
+// backward compatibility
+jx.ajax.getInstance = jx.ajax.get.instance ;

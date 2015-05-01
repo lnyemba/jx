@@ -1,10 +1,18 @@
 /**
-* Steve L. Nyemba <steve@the-phi.com>
-* jxf version 0.9
-* This file contains the compilation of utilities for miscellaneous/unsorted operations:
-*	casting
-*	vector extraction from associative array
-*	list of keys from an associative array
+* Simple Javascript eXtension - 1.0
+* (c) 2014 - 2015 Steve L. Nyemba, steve@the-phi.com
+* License GPL version 3.0
+* 
+* Implementation of miscellaneous utilities commonly used, These functions are reusable and simple:
+* jx.utils.vector				extracts a vector from an array of objects (or a matrix)
+* jx.utils.keys					extract keys from an associative array
+* jx.utils.unique				returns unique objects in an array, including array of objects (provided an key function)
+*
+* jx.utils.patterns:
+* 		Implementation of design patterns defined by the GOF http://en.wikipedia.org/wiki/Software_design_pattern
+* jx.utils.patterns.visitor		The visitor design pattern
+* jx.utils.patterns.iterator	The iterator design pattern
+* jx.utils.patterns.observer 	The observer design pattern
 */
 
 if(!jx){
@@ -58,49 +66,43 @@ jx.utils.keys=function(rec){
  * This function will returnt he unique elements of a list
  * @param list  list of elements (duplicates are expected)
  */
-jx.utils.unique = function (list,key){
+jx.utils.unique = function (list,getKey){
     var obj = {}
     for(var i=0; i < list.length; i++){
-    	if(list[i].constructor.name == Object){
-		id = list[i][key] ;
-		obj[id] = list[i] ;
+    	if(list[i].constructor == Object && getKey != null){
+		var key = getKey(list[i]) ;
+		obj[key]  = list[i] ;
+
 	}else{
 		obj[list[i]]= 1 ;
-		}
+	}
     }
-
-    if (list[0].constructor.name == Object){
+    if(getKey == null){
+	    return jx.utils.keys(obj);
+    }else{
     	//
-	// In case we have a complex object we can use a utility function and a design pattern to address the issue
-	// @TODO: This function can be used in the math library considering either a key or a function to return some form of representation of the record ... perhaps a hash?
+	// This will return the unique list of objects, provided the user has given a key extraction function
+	// The key extraction function is analogous to the equal operator in C++
 	//
     	return jx.utils.patterns.visitor(jx.utils.keys(obj),function(id){
 		return obj[id] ;
-	}) ;
-    }else{
-    	    return jx.utils.keys(obj);
+	})
     }
 }
-
 /**
  * Implementation of a few standard design patterns. Their use is user/dependent
  * For more information on how/when to use a design pattern please use google/wikipedia ;-)
- * We have implemented:
- *	- Iterator design pattern
- *	- Visitor design pattern
- *	- Observer design pattern
- * @TODO: Consider adding these patterns to events associated with DOMS (Other kind of utility function)
  */
 jx.utils.patterns = {}
 jx.utils.patterns.visitor = function(list,pointer){
-	rlist = [] ;
+	var rlist = [] ;
     for(var i=0; i < list.length; i++){       
         value = pointer(list[i]) ;
-	if(value != null){
-		rlist.push(value) ;
-	}
+		if(value != null){
+			rlist.push(value) ;
+		}
     }
-    return (rlist.length > 0)?rlist:list;
+    return (rlist.length > 0)?rlist:[];
 }
 /**
  * Implementation of an iterator design pattern: i.e we use a sequence of objects and call a given method on them
@@ -118,7 +120,7 @@ jx.utils.patterns.iterator = function(list,pointer){
  * @param init			pointer to be called on each observer to trigger it
  */
 jx.utils.patterns.observer = function(lobservers,init){
-	p = {} ;	//-- specification of the subject
+	var p = {} ;	//-- specification of the subject
 	p.index = 0;
 	p.nodes = lobservers ;
 	p.pointer = init;
@@ -131,10 +133,18 @@ jx.utils.patterns.observer = function(lobservers,init){
 		}
 	}
 	p.start = function(){
-		observer = this.nodes[this.index];
+		var observer = this.nodes[this.index];
 		try{
-			observer[this.pointer](this) ;
 			++this.index;
+			if(this.pointer.constructor == String){
+				observer[this.pointer](this) ;	
+			}else{
+				this.pointer(observer);
+				this.notify() ;
+			}
+			
+			
+			
 		}catch(e){
 			//
 			// if an exception was thrown, chances are were unable to increment and call notify
@@ -159,46 +169,3 @@ jx.utils.patterns.observer = function(lobservers,init){
 * @return 	array containing casted type
 */
 jx.utils.cast = jx.utils.patterns.visitor ;
-
-/**
-* Print a dom object to system defined printer (Physical; Network or File)
-* @param id	id of a DOM object
-*/
-jx.utils.print = function(id){}
-
-/**
-* The following namespace handles searches in depth & in breath.
-*/
-jx.utils.search = function(id,keywords,attrib){
-	var lattr = null;
-	attrib = (attrib == null)?['innerHTML','value']:attrib;
-	if(attrib.constructor == Array){
-		lattr = attrib;
-	}else{
-		lattr = [attrib] ;
-	}
-
-	regex = keywords.toLowerCase();
-	ldoms = jx.dom.get.children(id) ;
-	//ldoms.push(document.getElementById(id)) ;
-	var imatch = function(_dom){
-		obj = null;
-		for(var j=0; j < lattr.length; j++){
-			id = lattr[j] ;
-			str = _dom[id] ;
-			str = (str != null)?str.toLowerCase():str;
-			if(str == null){
-				continue;
-			}else if(str.match(regex) != null){
-					obj = _dom.cloneNode(true) ;
-					
-				}
-
-		}
-		return obj;
-	}
-	lmatches = jx.utils.patterns.visitor(ldoms,imatch)
-	return lmatches ;
-}
-
-//module.exports.utils = jx.utils ;
