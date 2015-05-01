@@ -1,7 +1,7 @@
-jx
+Simple Javascript eXtension Framework
 ==
 
-Javascript-X framework is a framework is that implements DOM handling, implements various utility functions as well as design patterns and extends some math functionalities. It is very compatible with other frameworks
+The simple Javascript eXtension framework (jx in short) implements wrappers around common tasks performed on DOM object, JSON object and implements various utilities like design patterns for easy handling of collections as well as mathematic functions and some basic machine learning techniques and models. Jx doesn't get in the way of other frameworks like jQuery; Dojo; Mootools; Backbone; Boostrap. We put in a conerted effort to keep it simple.  
 
 
 dom.js: Handles common tasks around a dom object with a simple interface
