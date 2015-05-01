@@ -8,12 +8,10 @@ The simple Javascript eXtension framework (jx in short) implements wrappers arou
 Handling of DOM objects will rely on DOM object identifiers (ID) with a few exceptions. 
 The focus of a dom object is mostly centered around a single DOM object, 
 
-
 We advise using utils.js in order to handle collections of DOM objects as utils.js implements various utilities and industry standard design patterns 
  
-
 This implementation is designed by W3C specifications of HTML5 and will integrate well with other frameworks that do so.
--- In addition we tried to mildly specify preconditions for executions of functions
+In addition we tried to mildly specify preconditions for executions of functions
 
 <b>rpc.js</b>: 
 
