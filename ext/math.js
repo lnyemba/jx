@@ -1,5 +1,5 @@
 /**
-* Simple Javascript eXtension - 1.0
+* Simple Javascript eXtension - 1.0, Mathematics Module
 * (c) 2011 - 2015 Steve L. Nyemba, steve@the-phi.com
 * License GPL version 3.0
 *
