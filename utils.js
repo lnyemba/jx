@@ -1,6 +1,6 @@
 /**
 * Simple Javascript eXtension - 1.0
-* (c) 2014 - 2015 Steve L. Nyemba, steve@the-phi.com
+* (c) 2011 - 2015 Steve L. Nyemba, steve@the-phi.com
 * License GPL version 3.0
 * 
 * Implementation of miscellaneous utilities commonly used, These functions are reusable and simple:
