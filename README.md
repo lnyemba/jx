@@ -16,6 +16,18 @@ In addition we tried to mildly specify preconditions for executions of functions
 <b>rpc.js</b>: 
 
 <b>utils.js</b>:
+Implementation of miscellaneous utilities commonly used, These functions are reusable and simple:
+
+<b>jx.utils.vector</b>	extracts a vector from an array of objects (or a matrix)
+<b>jx.utils.keys</b> extract keys from an associative array
+<b>jx.utils.unique</b>				returns unique objects in an array, including array of objects (provided an key function)
+
+<b>jx.utils.patterns</b>: 		
+Implementation of design patterns defined by the GOF http://en.wikipedia.org/wiki/Software_design_pattern
+
+<b>jx.utils.patterns.visitor</b>		The visitor design pattern
+<b>jx.utils.patterns.iterator</b>	The iterator design pattern
+<b>jx.utils.patterns.observer</b> 	The observer design pattern
 
 <b>ext/math.js</b>:
 

@@ -11,7 +11,7 @@
 * jx.ml.mapreduce	Performs a standard/basic mapreduce (single thread for now)
 * jx.ml.regression	Will perform linear & logistic regressions 
 */
-* 
+
 if(!jx){
 	var jx = {} ;
 }
