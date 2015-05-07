@@ -2,14 +2,14 @@
 * Simple Javascript eXtension - 1.0
 * (c) 2011 - 2015 Steve L. Nyemba, steve@the-phi.com
 * License GPL version 3.0
-* 
-* 
+*  
 * Handling of DOM objects will rely on DOM object identifiers (ID) with a few exceptions. 
 * The focus of a dom object is mostly centered around a single DOM object, 
 * We advise using utils.js in order to handle collections of DOM objects as utils.js implements various utilities and industry standard design patterns 
 * 
 * This implementation is designed by W3C specifications of HTML5 and will integrate well with other frameworks that do so.
-* In addition we tried to mildly specify preconditions for executions of functions
+* In addition we tried to mildly specify preconditions for executions of functions.
+* Architecturally the namespace serves as a wrapper around common DOM based tasks and can/should be cross-browser compatible because based on W3C standards
 *
 * LICENSE: GPLv3:
 *  This program comes with absolute NO WARRANTY or implied warranty and is free to use for any purpose: modified, integrated, distributed at will.
@@ -30,6 +30,7 @@ jx.dom.exists = function(id){
 }
 /**
  * This function will remove a node given it's identifier
+ * @pre jx.dom.exists(id)
  * @param {type} id
  * @returns {undefined}
  */
@@ -42,14 +43,33 @@ jx.dom.remove = function(id){
     item.parentNode.removeChild(item) ;
     
 }
+
+/**
+ * Append a child to DOM  to a given DOM object provided the identifier
+ * @pre jx.dom.exists(id) && _child != null
+ * @param id    identifier of the DOM object
+ * @param _child    child dom object 
+ */
 jx.dom.append = function(id,_child){
 	_parent = jx.dom.get.instance(id) ;
 	_parent.appendChild(_child) ;
 }
+
+/**
+ * This function will show a DOM object (assuming the DOM was hidden or not)
+ * @pre jx.dom.exiss(_id)
+ * @param _id   DOM object identifier
+ */
 jx.dom.show = function(_id){
 	_dom = jx.dom.get.instance(_id) ;
 	_dom.style.display = null;
 }
+
+/**
+ * This function will hide a DOM object (assuming the DOM is visible or not)
+ * @pre jx.dom.exiss(_id)
+ * @param _id   DOM object identifier
+ */
 jx.dom.hide = function(_id){
 	_dom = jx.dom.get.instance(_id) ;
 	_dom.style.display = 'none' ;
@@ -112,6 +132,10 @@ _getinputvalue = function(id){
     _input = document.getElementById(id) ;
     return _input.value ;
 }
+/**
+ * This function returns the value of a SPAN|DIV
+ * @pre jx.dom.exists(id)
+ */
 _getspanvalue = function(id){
     _input = document.getElementById(id) ;
     return _input.innerHTML ;
