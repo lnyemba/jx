@@ -35,12 +35,13 @@ jx.dom.exists = function(id){
  * @returns {undefined}
  */
 jx.dom.remove = function(id){
+    var _item = null;
     if (id.constructor == String){
-            item = jx.dom.get.instance(id)
+            _item = jx.dom.get.instance(id)
     }else{
-            item = id ;
+            _item = id ;
     }
-    item.parentNode.removeChild(item) ;
+    _item.parentNode.removeChild(_item) ;
     
 }
 
@@ -51,7 +52,7 @@ jx.dom.remove = function(id){
  * @param _child    child dom object 
  */
 jx.dom.append = function(id,_child){
-	_parent = jx.dom.get.instance(id) ;
+	var _parent = jx.dom.get.instance(id) ;
 	_parent.appendChild(_child) ;
 }
 

@@ -95,6 +95,17 @@ jx.math.avg = function(lxi,lni){
     }
 };
 
+/**
+* This function will repete a value a given number of times
+* @pre times > 0
+*/
+jx.math.rep = function(value,times){
+	var lvalues = []
+	for(var i=0; i < times; i++){
+		lvalues.push(value) ;
+	}
+	return lvalues;
+}
 jx.math.mean = jx.math.avg ;
 jx.math.pow = Math.pow
 jx.math.sd = function(lxi,lni){
@@ -103,7 +114,6 @@ jx.math.sd = function(lxi,lni){
 
     sqr = [] ;
     for(var i=0; i < lxi.length ;i++){
-		console.log(lxi[i])
        sqr[i] = jx.math.pow((Number(lxi[i])-mean),2 ) ;
     }
 
@@ -111,6 +121,27 @@ jx.math.sd = function(lxi,lni){
 
     return jx.math.sqrt(total/(N-1)) ;
 } ;
+/**
+* This function computes the correlation between two vectors
+* @pre x1.length == x2.length
+*/
+jx.math.cor = function(x1,x2){
+	return jx.math.cov(x1,x2) / (jx.math.sd(x1)*jx.math.sd(x2))
+}
+/**
+* This function will compute the covariance of 2 vectors
+* @pre x1.length == x2.length
+*/
+jx.math.cov = function(x1,x2){
+	var u1 = jx.math.mean(x1) ;
+	var u2 = jx.math.mean(x2) ;
+	var N = x1.length ;
+	var value = 0
+	for(var i in x1){
+		value += (x1[i] - u1) * (x2[i] - u2)
+	}
+	return value / (N - 1)
+}
 
 /**
 * Computes the factorial of a given value
