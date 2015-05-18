@@ -107,6 +107,35 @@ jx.math.rep = function(value,times){
 	return lvalues;
 }
 jx.math.mean = jx.math.avg ;
+/**
+* This function will compute the mode of a given vector
+* The mode is by definition the most frequent item in the vector
+*/
+jx.math.mode = function(x) {
+	var N = x.length ;
+	map = {}
+	var max =0;
+	var value = 0;
+	for(var i in x){
+		id = x[i]  ;
+		if(map[id] == null){
+			map[id] = 0 ;
+		}
+		map[id] = map[id] + 1 ;
+		if(map[id] > max){
+			value = id ;
+			max = map[id] ;
+		}
+	}
+	var value = jx.utils.patterns.visitor(jx.utils.keys(map),function(id){
+		if(map[id] == max){
+			return Number(id) ;
+		}else{
+			return null;
+		}
+	})
+	return value.length == 1?value[0]:value ;
+}
 jx.math.pow = Math.pow
 jx.math.sd = function(lxi,lni){
     N = lxi.length ;
