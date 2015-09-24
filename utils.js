@@ -89,6 +89,20 @@ jx.utils.unique = function (list,getKey){
 	})
     }
 }
+jx.utils.join = function(x,y){
+	if(x.length != y.length){
+		return [] 
+	}else{
+		var rec = x ;
+		for(var i in rec){
+			//
+			//@TODO: Consider the case we are adding to a matrix
+			//
+			rec[i] = [x[i],y[i]]
+		}
+		return rec ;
+	}
+}
 /**
  * Implementation of a few standard design patterns. Their use is user/dependent
  * For more information on how/when to use a design pattern please use google/wikipedia ;-)
@@ -169,3 +183,4 @@ jx.utils.patterns.observer = function(lobservers,init){
 * @return 	array containing casted type
 */
 jx.utils.cast = jx.utils.patterns.visitor ;
+
