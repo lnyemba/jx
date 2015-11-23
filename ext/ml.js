@@ -58,4 +58,3 @@ jx.ml.mapreduce = function(data,fn_map,fn_reduce){
  * The modules developed below will perform linear regression and logistic regression
  */
 jx.ml.regression = {}
-

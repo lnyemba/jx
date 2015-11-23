@@ -112,6 +112,15 @@ jx.ajax.get.instance = function(){
             
             
         }
+	this.put = function(url,callback){
+		this.send(url,callback,'PUT') ;
+	}
+	this.get = function(url,callback){
+		this.send(url,callback,'GET') ;
+	}
+	this.post = function(url,callback){
+		this.send(url,callback,'POST') ;
+	}
     }//-- end of the factory method
     return new factory() ;
 }
@@ -119,3 +128,4 @@ jx.ajax.get.instance = function(){
 //
 // backward compatibility
 jx.ajax.getInstance = jx.ajax.get.instance ;
+HttpClient = jx.ajax.get ;

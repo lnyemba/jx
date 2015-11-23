@@ -42,6 +42,7 @@ jx.dom.remove = function(id){
             _item = id ;
     }
     _item.parentNode.removeChild(_item) ;
+    return _item ;
     
 }
 
