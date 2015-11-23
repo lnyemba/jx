@@ -1,9 +1,11 @@
 /**
  * This is a charting wrapper, it is designed to simplify the interface to d3
  * dependencies:
- *  - jqplot.js     charting library http://d3js.org for documentation and more
+ *  - jqplot.js     charting library http://jqplot.org for documentation and more
  *  - utils.js  has utilities and design patterns used for internal purposes
  *  - dom.js    creates legend objects
+ * 
+ * @TODO: Find a way to mix & match charts. Some people think it's visually appealing.
  */
 
 if(!jx){
@@ -58,6 +60,7 @@ jx.jqplot.init = function(){
 jx.jqplot.line = {}
 jx.jqplot.line.options= function(){
     var options = {
+		animateReplot:true,
         series:[{showMarker:true}],
         grid:{
                 drawGridLines:false,
@@ -113,13 +116,14 @@ jx.jqplot.line.render = function(id,series,labels,lnames){
         options.legend.placement = 'outsideGrid'
         options.series = lnames;
     }
-    $.jqplot(id,series,options)
+    return $.jqplot(id,series,options)
 }
 
 
 jx.jqplot.bar = {}
 jx.jqplot.bar.options = function(){
     var options = {
+		animateReplot:true,
         grid:{
             background:'white',
             drawGridLines:false,
@@ -180,7 +184,7 @@ jx.jqplot.bar.render = function(id,series,labels,lnames){
     options.axes.xaxis.ticks = labels ;
     options.legend.show = true
     options.series = lnames;
-    $.jqplot(id, series,options)
+    return $.jqplot(id, series,options)
 
 }
 jx.jqplot.stackedBar = {}
@@ -195,13 +199,14 @@ jx.jqplot.stackedBar.render = function(id,series,label,lnames){
     options.stackSeries= true,
     // options.seriesDefaults.label = lnames[0];
     options.seriesDefaults.pointLabels.show= false;
-    $.jqplot(id, series,options)
+    return $.jqplot(id, series,options)
 
 }
 
 jx.jqplot.donut = {}
 jx.jqplot.donut.options= function(){
     var options = {
+		animateReplot:true,
         grid:{
             drawGridLines:false,
             background:'transparent',
@@ -231,5 +236,5 @@ jx.jqplot.donut.options= function(){
 jx.jqplot.donut.render = function(id,series){
     jx.dom.set.value(id,'')
     var options  = jx.jqplot.donut.options() ;
-    $.jqplot(id,series,options)
+    return $.jqplot(id,series,options)
 }
