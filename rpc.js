@@ -128,4 +128,4 @@ jx.ajax.get.instance = function(){
 //
 // backward compatibility
 jx.ajax.getInstance = jx.ajax.get.instance ;
-HttpClient = jx.ajax.get ;
+var HttpClient = jx.ajax.get ;
