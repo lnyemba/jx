@@ -20,6 +20,7 @@ This file is designed to handle http requests post, get, put of data and submitt
  The object's member performs an http call with GET method and a callback method
  
 <b>utils.js</b>:
+
 Implementation of miscellaneous utilities commonly used, These functions are reusable and simple:
 
 <b>jx.utils.vector</b>	extracts a vector from an array of objects (or a matrix)
