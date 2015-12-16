@@ -14,7 +14,11 @@ This implementation is designed by W3C specifications of HTML5 and will integrat
 In addition we tried to mildly specify preconditions for executions of functions
 
 <b>rpc.js</b>: 
-
+This file is designed to handle http requests post, get, put of data and submitting form data as well as uploading of files. The interface we have chosen is intended to be simple:
+<b>HttpClient.instance</b> Creates an instance of an httpclient
+<b>httpclient.get</b>(:url,:callback)
+ The object's member performs an http call with GET method and a callback method
+ 
 <b>utils.js</b>:
 Implementation of miscellaneous utilities commonly used, These functions are reusable and simple:
 
