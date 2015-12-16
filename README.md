@@ -9,7 +9,7 @@ dom.js
 </td>
 <td>rpc.js</td>
 </tr>
-<tr>
+<tr style="font-size:11px">
 <td>
 This file is intended to handle DOM objects via <b>jx.dom</b> namespace. The namespace will rely on DOM object identifiers (ID) with a few exceptions of radio & checkboxes. The handling is mostly around getting and setting data on various attributes. 
 The focus of a dom object is mostly centered around a single DOM object, 
@@ -20,7 +20,9 @@ This implementation is designed by W3C specifications of HTML5 and will integrat
 In addition we tried to mildly specify preconditions for executions of functions
 </td>
 <td>
-This file is designed to handle http requests post, get, put of data and submitting form data as well as uploading of files. The interface we have chosen is intended to be simple:
+This file is designed to handle http requests post, get, put of data and submitting form data as well. 
+
+<b>HttpClient.instance</b> is a factory class provided to access to the interface and provide the functionality
 
 </td>
 </tr>
