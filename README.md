@@ -1,7 +1,11 @@
 Javascript eXtension Framework
 ==
 The simple **J**avascript e**X**tension framework or simply **Jx** is largely implemented around a facade design pattern to simplify common tasks on DOM objects.
-The framework is organized as follows:
+The framework is organized by scope:
+| dom.js|rpc.js|utils.js|math.js|ml.js|charts.js|
+|-------|-------
+|Implements DOM Object handling by providing an expressive interface| Implements an easy to use and expressive AJAX interface| Implements an set of reusable utilities for handling collections & design patterns| implements essential basic math (sets) & statistical functions| Implements some machine learning approaches like mapreduce| Implements an interface to jqplot|
+
 
 **dom.js**
 
@@ -13,64 +17,64 @@ This will mostly refer to DOM objects by their identifiers
 **jx.dom.show**
 
 	Makes a DOM Object visible
-	<b>applies</b> ALL
+	applies: ALL
 
 **jx.dom.hide**
 
 	Makes a DOM Object invisible
-	__applies__ ALL
+	applies: ALL
 	
 **jx.dom.set.value**
 
 	Sets the value of an object provided its identifier.
-	<b>applies</b> SELECT, DIV, SPAN, INPUT, TEXTAREA
+	applies: SELECT, DIV, SPAN, INPUT, TEXTAREA
 
 **jx.dom.set.attribute**
 
 	This function will set an attribute on a DOM object, the attributes can be standard or custom
-	<b>applies</b> ALL
+	applies: ALL
 	
 **jx.dom.set.css**
 
 	This function will set a css to an existing className object of a DOM object
-	<b>applies</b> ALL
+	applies: ALL
 **jx.dom.set.style**
 	
 	This function will set an attribute on the style object. 
 	It is equivalent to adding an inline css entry to a DOM object
-	<b>applies</b> ALL
+	applies: ALL
 	
 **jx.dom.set.focus**
 		
 	This function will allow focus on a DOM object that permits it
-	<b>applies</b> INPUT
+	applies: INPUT
 		
 **jx.dom.get.instance**
 		
 	This function will return an existing DOM object or create a new one:
 		- If a DOM identifier is entered it will return the DOM Object
 		- If a keyword is provided it will create an instance of the DOM Object
-	<b>applies</b> ALL
+	applies: ALL
 	
 **jx.dom.get.value**
 
 	Returns the value from a DOM Object provided an identifier
-	<b>applies</b> SELECT,DIV, SPAN,INPUT, TEXTAREA
+	applies: SELECT,DIV, SPAN,INPUT, TEXTAREA
 	
 **jx.dom.get.children**
 	
 	Returns the list of children nodes under a specified DOM object
-	<b>applies</b> ALL
+	applies: ALL
 	
 **jx.dom.append**
 	
 	Appends a DOM object to an existing one that is specified an identifier
-	<b>applies</b> ALL
+	applies: ALL
 	
 **jx.dom.remove**
 
 	Removes a DOM object from it's parent, and returns the object.
-	<b>applies</b> ALL
+	applies: ALL
 	
 The simple **J**avascript e**X**tension framework (**Jx** in short) implements wrappers around common tasks performed on DOM object, JSON object and implements various utilities like design patterns for easy handling of collections as well as mathematic functions and some basic machine learning techniques and models. Jx doesn't get in the way of other frameworks like jQuery; Dojo; Mootools; Backbone; Boostrap. We put in a concerted effort to keep it simple yet useful.  
 
