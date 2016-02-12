@@ -85,18 +85,28 @@ This file implements a expressive **AJAX** handler that is W3C Compliant
 
 This class creates an AJAX handler to the calling code.
 	
-	`var httpclient = HttpClient.instance()`
+	example:
+	var httpclient = HttpClient.instance()
 
 The object has the following interface once instanciated. We assume the object created is called httpclient
 
 **httpclient.setData(_object_)**
 	
-	This function will set data that will be processed with a request (POST|PUT)
-	The object set can be of any type
+This function will set data that will be processed with a request (POST|PUT)
+The object set can be of any type
 
 **httpclient.setHeader(_key_,_value_)**
 
-	This function is designed to set the headers that will be processed with a request (GET|POST|PUT)
+This function is designed to set the headers that will be processed with a request (GET|POST|PUT)
+	example:
+		key = 'Authorization'
+		value = 'Bearer ![0v8]-24x7-4q@11-h8r5
+		
+	parameters:
+		key	key of the header
+		value	value associated with the key
+	
+	NOTE: will override existing keys
 	
 **httpclient.<get|post|put>(_url_,_callback_)**
 
