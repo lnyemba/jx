@@ -1,6 +1,58 @@
-Simple Javascript eXtension Framework
+Javascript eXtension Framework
 ==
+The simple **J**avascript e**X**tension framework or simply **Jx** is largely implemented around a facade design pattern to simplify common tasks on DOM objects.
+The framework is organized as follows:
 
+**dom.js**
+
+	This file handles DOM object operations with a simple interface. The namespace it belongs to is identified/prefixed by **jx.dom**
+	This will mostly refer to DOM objects by their identifiers 
+	
+	**preconditions**: The DOM object identifier must always be set 
+
+	**jx.dom.set.value**
+
+		Sets the value of an object provided its identifier.
+		**applies** SELECT, DIV, SPAN, INPUT, TEXTAREA
+
+	**jx.dom.set.attribute**
+	
+		This function will set an attribute on a DOM object, the attributes can be standard or custom
+		**applies** ALL
+		
+	**jx.dom.set.css**
+
+		This function will set a css to an existing className object of a DOM object
+		**applies** ALL
+	**jx.dom.set.style**
+		
+		This function will set an attribute on the style object. It is equivalent to adding an inline css entry to a DOM object
+		**applies** ALL
+	
+	**jx.dom.set.focus**
+		
+		This function will allow focus on a DOM object that permits it
+		**applies** INPUT
+		
+	**jx.dom.get.instance**
+		
+		This function will return an existing DOM object or create a new one:
+			- If a DOM identifier is entered it will return the DOM Object
+			- If a keyword is provided it will create an instance of the DOM Object
+		**applies** ALL
+		
+	**jx.dom.get.value**
+
+		Returns the value from a DOM Object provided an identifier
+		**applies** SELECT,DIV, SPAN,INPUT, TEXTAREA
+	
+	**jx.dom.get.children**
+		
+		Returns the list of children nodes under a specified DOM object
+		**applies** ALL
+		
+	**jx.dom.append**
+	**jx.dom.remove**
 The simple **J**avascript e**X**tension framework (**Jx** in short) implements wrappers around common tasks performed on DOM object, JSON object and implements various utilities like design patterns for easy handling of collections as well as mathematic functions and some basic machine learning techniques and models. Jx doesn't get in the way of other frameworks like jQuery; Dojo; Mootools; Backbone; Boostrap. We put in a concerted effort to keep it simple yet useful.  
 
 <Table>
