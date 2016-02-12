@@ -18,7 +18,7 @@ This will mostly refer to DOM objects by their identifiers
 **jx.dom.show**
 
 	Makes a DOM Object visible
-	applies: ALL
+	*applies*: ALL
 
 **jx.dom.hide**
 
