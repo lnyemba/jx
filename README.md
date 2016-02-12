@@ -18,7 +18,7 @@ This will mostly refer to DOM objects by their identifiers
 **jx.dom.hide**
 
 	Makes a DOM Object invisible
-	<b>applies</b> ALL
+	__applies__ ALL
 	
 **jx.dom.set.value**
 
