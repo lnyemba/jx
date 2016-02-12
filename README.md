@@ -2,8 +2,9 @@ Javascript eXtension Framework
 ==
 The simple **J**avascript e**X**tension framework or simply **Jx** is largely implemented around a facade design pattern to simplify common tasks on DOM objects.
 The framework is organized by scope:
+
 | dom.js|rpc.js|utils.js|math.js|ml.js|charts.js|
-|-------|-------
+|-------|-------|-------|-------|-------|-------|
 |Implements DOM Object handling by providing an expressive interface| Implements an easy to use and expressive AJAX interface| Implements an set of reusable utilities for handling collections & design patterns| implements essential basic math (sets) & statistical functions| Implements some machine learning approaches like mapreduce| Implements an interface to jqplot|
 
 
