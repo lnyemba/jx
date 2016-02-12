@@ -18,7 +18,7 @@ This will mostly refer to DOM objects by their identifiers
 **jx.dom.show**
 
 	Makes a DOM Object visible
-	*applies*: ALL
+	applies: ALL
 
 **jx.dom.hide**
 
@@ -98,7 +98,8 @@ The object set can be of any type
 **httpclient.setHeader(_key_,_value_)**
 
 This function is designed to set the headers that will be processed with a request (GET|POST|PUT)
-	example:
+	
+	Example:
 		key = 'Authorization'
 		value = 'Bearer ![0v8]-24x7-4q@11-h8r5
 		
