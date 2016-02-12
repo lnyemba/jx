@@ -7,6 +7,10 @@ The simple **J**avascript e**X**tension framework or simply **Jx** delivers an e
 |-------|-------|-------|-------|-------|-------|
 |Implements DOM Object handling by providing an expressive interface| Implements an easy to use and expressive AJAX interface| Implements an set of reusable utilities for handling collections & design patterns| implements essential basic math (sets) & statistical functions| Implements some machine learning approaches like mapreduce| Implements an interface to jqplot|
 
+The implementation is designed to provide to an expressive, workable and easy to use interface when working with Javascript
+We use standard design patterns and have documented the code extensively for anyone to contribute
+
+We have a [Nodejs Port](https://github.com/lnyemba/jx-node.git](jx-node) available we encourage you to visit. 
 
 **dom.js**
 
@@ -99,14 +103,10 @@ The object set can be of any type
 
 This function is designed to set the headers that will be processed with a request (GET|POST|PUT)
 	
-	Example:
-		key = 'Authorization'
-		value = 'Bearer ![0v8]-24x7-4q@11-h8r5
-		
 	parameters:
 		key	key of the header
 		value	value associated with the key
-	
+		
 	NOTE: will override existing keys
 	
 **httpclient.<get|post|put>(_url_,_callback_)**
