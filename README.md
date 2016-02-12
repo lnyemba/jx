@@ -8,51 +8,70 @@ The framework is organized as follows:
 This file handles DOM object operations with a simple interface. The namespace it belongs to is identified/prefixed by **jx.dom**
 This will mostly refer to DOM objects by their identifiers 
 
-**preconditions**: The DOM object identifier must always be set 
+**Preconditions**: The DOM object identifier must always be set 
 
+**jx.dom.show**
+
+	Makes a DOM Object visible
+	<b>applies</b> ALL
+
+**jx.dom.hide**
+
+	Makes a DOM Object invisible
+	<b>applies</b> ALL
+	
 **jx.dom.set.value**
 
 	Sets the value of an object provided its identifier.
-	**applies** SELECT, DIV, SPAN, INPUT, TEXTAREA
+	<b>applies</b> SELECT, DIV, SPAN, INPUT, TEXTAREA
 
 **jx.dom.set.attribute**
 
 	This function will set an attribute on a DOM object, the attributes can be standard or custom
-	**applies** ALL
+	<b>applies</b> ALL
 	
 **jx.dom.set.css**
 
 	This function will set a css to an existing className object of a DOM object
-	**applies** ALL
+	<b>applies</b> ALL
 **jx.dom.set.style**
 	
-	This function will set an attribute on the style object. It is equivalent to adding an inline css entry to a DOM object
-	**applies** ALL
+	This function will set an attribute on the style object. 
+	It is equivalent to adding an inline css entry to a DOM object
+	<b>applies</b> ALL
 	
 **jx.dom.set.focus**
 		
 	This function will allow focus on a DOM object that permits it
-	**applies** INPUT
+	<b>applies</b> INPUT
 		
 **jx.dom.get.instance**
 		
 	This function will return an existing DOM object or create a new one:
 		- If a DOM identifier is entered it will return the DOM Object
 		- If a keyword is provided it will create an instance of the DOM Object
-	**applies** ALL
+	<b>applies</b> ALL
 	
 **jx.dom.get.value**
 
 	Returns the value from a DOM Object provided an identifier
-	**applies** SELECT,DIV, SPAN,INPUT, TEXTAREA
+	<b>applies</b> SELECT,DIV, SPAN,INPUT, TEXTAREA
 	
 **jx.dom.get.children**
 	
 	Returns the list of children nodes under a specified DOM object
-	**applies** ALL
+	<b>applies</b> ALL
 	
 **jx.dom.append**
+	
+	Appends a DOM object to an existing one that is specified an identifier
+	<b>applies</b> ALL
+	
 **jx.dom.remove**
+
+	Removes a DOM object from it's parent, and returns the object.
+	<b>applies</b> ALL
+	
 The simple **J**avascript e**X**tension framework (**Jx** in short) implements wrappers around common tasks performed on DOM object, JSON object and implements various utilities like design patterns for easy handling of collections as well as mathematic functions and some basic machine learning techniques and models. Jx doesn't get in the way of other frameworks like jQuery; Dojo; Mootools; Backbone; Boostrap. We put in a concerted effort to keep it simple yet useful.  
 
 <Table>
