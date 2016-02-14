@@ -17,7 +17,7 @@ We have a [Nodejs port](https://github.com/lnyemba/jx-node.git). Due to the area
 	* ml.js: 	for machine learning
 	* utils.js	for collection handling and design pattherns
 
-**dom.js**
+#dom.js
 
 This file handles DOM object operations with a simple interface. The namespace it belongs to is identified/prefixed by **jx.dom**
 This will mostly refer to DOM objects by their identifiers 
@@ -86,7 +86,7 @@ This will mostly refer to DOM objects by their identifiers
 	Removes a DOM object from it's parent, and returns the object.
 	applies: ALL
 	
-**rpc.js**
+#rpc.js
 
 This file implements a expressive **AJAX** handler that is W3C Compliant
 
