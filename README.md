@@ -6,7 +6,7 @@ The simple **J**avascript e**X**tension framework or simply **Jx** delivers an e
 
 | dom.js|rpc.js|utils.js|math.js|ml.js|charts.js|
 |-------|-------|-------|-------|-------|-------|
-| Handles DOM objects | Handles AJAX | Reusable collection handlers & design patterns | Essential math (sets) & statistical functions| Machine learning approaches like mapreduce | Implements an interface to jqplot|
+| Handles DOM objects | Handles remote calls (AJAX) | Reusable collection handlers & design patterns | Essential math (sets) & statistical functions| Machine learning approaches like mapreduce | Implements an interface to jqplot|
 
 The implementation is designed to provide to an expressive, workable and easy to use interface when working with Javascript
 We use standard design patterns and have documented the code extensively for anyone to contribute
