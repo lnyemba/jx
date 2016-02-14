@@ -1,5 +1,6 @@
 Javascript eXtension Framework
 ==
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 The simple **J**avascript e**X**tension framework or simply **Jx** delivers an expressive interface to javascript common tasks. 
 **Jx** is organized into scopes captured as follows:
 
@@ -11,10 +12,10 @@ The implementation is designed to provide to an expressive, workable and easy to
 We use standard design patterns and have documented the code extensively for anyone to contribute
 
 We have a [Nodejs port](https://github.com/lnyemba/jx-node.git). Due to the areas of application of nodejs, we have primarily enabled:
-	
-	- math.js 	for mathematics & statistic functions
-	- ml.js: 	for machine learning
-	- utils.js	for collection handling and design pattherns
+
+	* math.js 	for mathematics & statistic functions
+	* ml.js: 	for machine learning
+	* utils.js	for collection handling and design pattherns
 
 **dom.js**
 
