@@ -2,11 +2,11 @@ Javascript eXtension Framework
 ==
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 The simple **J**avascript e**X**tension framework or simply **Jx** delivers an expressive interface to javascript common tasks. 
-**Jx** is organized into scopes captured as follows:
+**Jx** is organized into scopes captured as follows in a simple and expressive interface:
 
 | dom.js|rpc.js|utils.js|math.js|ml.js|charts.js|
 |-------|-------|-------|-------|-------|-------|
-|Implements DOM Object handling by providing an expressive interface| Implements an easy to use and expressive AJAX interface| Implements an set of reusable utilities for handling collections & design patterns| implements essential basic math (sets) & statistical functions| Implements some machine learning approaches like mapreduce| Implements an interface to jqplot|
+| Handles DOM objects | Handles AJAX | Reusable collection handlers & design patterns | Essential math (sets) & statistical functions| Machine learning approaches like mapreduce | Implements an interface to jqplot|
 
 The implementation is designed to provide to an expressive, workable and easy to use interface when working with Javascript
 We use standard design patterns and have documented the code extensively for anyone to contribute
