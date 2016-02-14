@@ -10,7 +10,11 @@ The simple **J**avascript e**X**tension framework or simply **Jx** delivers an e
 The implementation is designed to provide to an expressive, workable and easy to use interface when working with Javascript
 We use standard design patterns and have documented the code extensively for anyone to contribute
 
-We have a [Nodejs Port](https://github.com/lnyemba/jx-node.git) available we encourage you to visit. 
+We have a [Nodejs port](https://github.com/lnyemba/jx-node.git). Due to the areas of application of nodejs, we have primarily enabled:
+	
+	- math.js 	for mathematics & statistic functions
+	- ml.js: 	for machine learning
+	- utils.js	for collection handling and design pattherns
 
 **dom.js**
 
