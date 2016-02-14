@@ -2,7 +2,7 @@ Javascript eXtension Framework
 ==
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 The simple **J**avascript e**X**tension framework or simply **Jx** delivers an expressive interface to javascript common tasks. 
-**Jx** is organized into scopes captured as follows in a simple and expressive interface:
+**Jx** is organized into scopes in a simple and expressive interface:
 
 | dom.js|rpc.js|utils.js|math.js|ml.js|charts.js|
 |-------|-------|-------|-------|-------|-------|
