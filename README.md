@@ -88,7 +88,7 @@ This will mostly refer to DOM objects by their identifiers
 	
 #rpc.js
 
-This file implements a expressive **AJAX** handler that is W3C Compliant
+This file implements a expressive **AJAX** handler that is W3C Compliant: This makes it incompatible with versions of Internet Explorer that are not W3C compliant.
 
 **HttpClient.instance**
 
