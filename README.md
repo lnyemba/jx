@@ -1,7 +1,7 @@
 Javascript eXpressive Framework
 ==
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-The goal of this framework is to provide an expressive wrapper around certain tasks so as to make Javascript code a bit readable. The approach leverages well known design patterns and guaranteeing compatibility with existing frameworks like JQuery, Mootools, Dojo, gRaphael, Jqplot ...
+The goal of this framework is to provide an expressive wrapper around certain tasks so as to make Javascript code a bit readable. The approach leverages well known design patterns and guarantees compatibility with existing frameworks like JQuery, Mootools, Dojo, gRaphael, Jqplot ...
 
 Additionally we organized the the interfaces into files that implement scopes. Making **Jx** truely expressive within a context defined by a scope:
 
