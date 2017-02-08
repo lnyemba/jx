@@ -234,12 +234,22 @@ jx.math.sets.union = function(list1,list2,equals){
 * By definition normalization is (x - u) / sd (assuming population parameters are known)
 */
 jx.math.normalize = function(lvalues){
+       if(lvalues[0].constructor.name == Array){
+            m = []
+            for(var i=0; i < lvalues.length; i++){
+                row = lvalues[i]
+                xo = jx.math.normalize(row)
+                m.push(xo)
+                
+            }
+            return m
+        }else{
 		mean = jx.math.mean(lvalues) ;
 		sd = jx.math.sd(lvalues) ;
 		return jx.utils.patterns.visitor(lvalues,function(x){
 			return ((x - mean) / sd)
 		})
-}
+        }}
 
 /**
  * This function will scale a feature vector over it's range
