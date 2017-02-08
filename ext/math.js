@@ -229,32 +229,48 @@ jx.math.sets.union = function(list1,list2,equals){
 	return runion;
 }
 
+
 /**
 * This function will normalize values within a vector
 * By definition normalization is (x - u) / sd (assuming population parameters are known)
 */
 jx.math.normalize = function(lvalues){
-       if(lvalues[0].constructor.name == Array){
+        
+       if(lvalues[0].constructor == Array){
             m = []
-            for(var i=0; i < lvalues.length; i++){
-                row = lvalues[i]
+            
+            for(i in lvalues[0]){
+                row= jx.utils.vector(i,lvalues)
                 xo = jx.math.normalize(row)
                 m.push(xo)
                 
             }
             return m
         }else{
+                
 		mean = jx.math.mean(lvalues) ;
 		sd = jx.math.sd(lvalues) ;
 		return jx.utils.patterns.visitor(lvalues,function(x){
 			return ((x - mean) / sd)
 		})
-        }}
+        }
+}
 
 /**
  * This function will scale a feature vector over it's range
  */
 jx.math.scale = function(lvalues,percent){
+    if (lvalues[0].constructor == Array){
+       m = []
+            
+            for(i in lvalues[0]){
+                row= jx.utils.vector(i,lvalues)
+                xo = jx.math.scale(row)
+                m.push(xo)
+                
+            }
+            return m        
+    }else{
 	max = jx.math.max(lvalues) ;
 	min = jx.math.min(lvalues) ;
 	return jx.utils.patterns.visitor(lvalues,function(x){
@@ -265,6 +281,7 @@ jx.math.scale = function(lvalues,percent){
 			return value ;
 		}
 	})
+    }
 }
 /**
 * This is a lightweight map reduce infrastructure
