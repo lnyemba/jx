@@ -229,6 +229,7 @@ jx.math.sets.union = function(list1,list2,equals){
 	return runion;
 }
 
+
 /**
 * This function will normalize values within a vector
 * By definition normalization is (x - u) / sd (assuming population parameters are known)
@@ -239,10 +240,13 @@ jx.math.normalize = function(lvalues){
             m = []
             
             for(i in lvalues[0]){
+<<<<<<< HEAD
                 //
                 // We are putting the parameters of every column together,
                 // Once this is done we can update every sample of the matrix with normalized values
                 //
+=======
+>>>>>>> bbe27d210afd458533a96a0e922ffd115b685434
                 row= jx.utils.vector(i,lvalues)
                 xo = jx.math.normalize(row)
                 xo = {}
@@ -271,7 +275,8 @@ jx.math.normalize = function(lvalues){
 		return jx.utils.patterns.visitor(lvalues,function(x){
 			return ((x - mean) / sd)
 		})
-        }}
+        }
+}
 
 /**
  * This function will scale a feature vector over it's range
@@ -281,6 +286,7 @@ jx.math.scale = function(lvalues,percent){
        m = []
             
             for(i in lvalues[0]){
+<<<<<<< HEAD
                 //
                 // Computing parameters to perform feature scaling
                 // max, min to compute range
@@ -305,6 +311,14 @@ jx.math.scale = function(lvalues,percent){
         }
             return lvalues    
                
+=======
+                row= jx.utils.vector(i,lvalues)
+                xo = jx.math.scale(row)
+                m.push(xo)
+                
+            }
+            return m        
+>>>>>>> bbe27d210afd458533a96a0e922ffd115b685434
     }else{
 	max = jx.math.max(lvalues) ;
 	min = jx.math.min(lvalues) ;
