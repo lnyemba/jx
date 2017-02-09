@@ -234,16 +234,38 @@ jx.math.sets.union = function(list1,list2,equals){
 * By definition normalization is (x - u) / sd (assuming population parameters are known)
 */
 jx.math.normalize = function(lvalues){
-       if(lvalues[0].constructor.name == Array){
+        
+       if(lvalues[0].constructor == Array){
             m = []
-            for(var i=0; i < lvalues.length; i++){
-                row = lvalues[i]
+            
+            for(i in lvalues[0]){
+                //
+                // We are putting the parameters of every column together,
+                // Once this is done we can update every sample of the matrix with normalized values
+                //
+                row= jx.utils.vector(i,lvalues)
                 xo = jx.math.normalize(row)
+                xo = {}
+                xo.mean = jx.math.mean(row)
+                xo.sd   = jx.math.sd(row)
                 m.push(xo)
                 
             }
-            return m
+            //
+            // Normalizing the matrix with acquired parameters
+            //
+            for(i in lvalues){
+                var row = lvalues[i]
+                for (j in m){
+                    var params = m[j]
+                    row[j] = (row[j] - params.mean)/params.sd
+                }
+                lvalues[i] = row
+            }
+            
+            return lvalues
         }else{
+                
 		mean = jx.math.mean(lvalues) ;
 		sd = jx.math.sd(lvalues) ;
 		return jx.utils.patterns.visitor(lvalues,function(x){
@@ -255,6 +277,35 @@ jx.math.normalize = function(lvalues){
  * This function will scale a feature vector over it's range
  */
 jx.math.scale = function(lvalues,percent){
+    if (lvalues[0].constructor == Array){
+       m = []
+            
+            for(i in lvalues[0]){
+                //
+                // Computing parameters to perform feature scaling
+                // max, min to compute range
+                //
+                row= jx.utils.vector(i,lvalues)
+                xo = {}
+                xo.max = jx.math.max(row)
+                xo.min = jx.math.min(row)
+                m.push(xo)
+                
+            }
+            //
+            // Performing feature scaling of the matrix here
+            //
+           for(i in lvalues){
+               var row = lvalues[i]
+               for(j in m){
+                   var params = m[j]
+                   row[j] = (row[j] - params.min)/params.max
+            }
+            lvalues[i] = row
+        }
+            return lvalues    
+               
+    }else{
 	max = jx.math.max(lvalues) ;
 	min = jx.math.min(lvalues) ;
 	return jx.utils.patterns.visitor(lvalues,function(x){
@@ -265,6 +316,7 @@ jx.math.scale = function(lvalues,percent){
 			return value ;
 		}
 	})
+    }
 }
 /**
 * This is a lightweight map reduce infrastructure
