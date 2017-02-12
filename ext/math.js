@@ -149,7 +149,10 @@ jx.math.sd = function(lxi,lni){
     total = jx.math.sum(sqr);
 
     return jx.math.sqrt(total/(N-1)) ;
-} ;
+};
+jx.math.var = function (lxi, lni) { 
+	return jx.math.sd(lxi,lni)^2
+}
 /**
 * This function computes the correlation between two vectors
 * @pre x1.length == x2.length
