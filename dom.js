@@ -214,8 +214,12 @@ jx.dom.get.value = function(id){
  * @post: none
  */
 jx.dom.get.attribute = function(id,field){
-    _dom = jx.dom.get.instance(id)
-    return _dom.getAttribute(field) ;
+    var _dom = jx.dom.get.instance(id)
+    var value = _dom.getAttribute(field);
+    if (value == null) {
+        value = _dom[field]
+    }
+    return value
 }
 /**
  * This function returns a list of children nodes provided an existing node identifier
@@ -312,8 +316,13 @@ jx.dom.set.value= function(id,value){
  * @post: jx.dom.get.attribute(id,field) == value || or none
  */
 jx.dom.set.attribute = function(id,field,value){
-    _dom = jx.dom.get.instance(id) ;
-    _dom.setAttribute(field,value) ;
+    _dom = jx.dom.get.instance(id);
+    if (value.constructor == String) {
+        _dom.setAttribute(field,value) ;    
+    } else {
+        _dom[field] = value
+    }
+    
 
 }
 /**
